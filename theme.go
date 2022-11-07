@@ -2,17 +2,16 @@ package main
 
 import (
 	"fyne.io/fyne/v2"
-	"image/color"
-
 	"fyne.io/fyne/v2/theme"
+	"image/color"
 )
 
-type myTheme struct{}
+type MyTheme struct{}
 
-var _ fyne.Theme = (*myTheme)(nil)
+var _ fyne.Theme = (*MyTheme)(nil)
 
 // return bundled font resource
-func (*myTheme) Font(s fyne.TextStyle) fyne.Resource {
+func (*MyTheme) Font(s fyne.TextStyle) fyne.Resource {
 	if s.Monospace {
 		return theme.DefaultTheme().Font(s)
 	}
@@ -28,14 +27,14 @@ func (*myTheme) Font(s fyne.TextStyle) fyne.Resource {
 	return resourceMsyhTtc
 
 }
-func (*myTheme) Color(n fyne.ThemeColorName, v fyne.ThemeVariant) color.Color {
+func (*MyTheme) Color(n fyne.ThemeColorName, v fyne.ThemeVariant) color.Color {
 	return theme.DefaultTheme().Color(n, v)
 }
 
-func (*myTheme) Icon(n fyne.ThemeIconName) fyne.Resource {
+func (*MyTheme) Icon(n fyne.ThemeIconName) fyne.Resource {
 	return theme.DefaultTheme().Icon(n)
 }
 
-func (*myTheme) Size(n fyne.ThemeSizeName) float32 {
+func (*MyTheme) Size(n fyne.ThemeSizeName) float32 {
 	return theme.DefaultTheme().Size(n)
 }
