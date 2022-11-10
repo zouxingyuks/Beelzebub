@@ -1,4 +1,4 @@
-package main
+package algorithm
 
 type Stack struct {
 	length uint64

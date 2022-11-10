@@ -1,6 +1,7 @@
-package main
+package controller
 
 import (
+	"Beelzebub/algorithm"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/data/binding"
@@ -40,17 +41,17 @@ func (d *decode) Output() (label *widget.Label) {
 	return label
 }
 func (d *decode) Decode() (b *widget.Button) {
-	b = widget.NewButton(decodeTitle, func() {
+	b = widget.NewButton("解码", func() {
 		//todo 解码按钮
 		input, _ := d.input.Get()
-		output := Translator(input)
+		output := algorithm.Translator(input)
 		d.output.Set(output)
 	})
 	return b
 }
 
 func (d *decode) loadUI(app fyne.App) interface{} {
-	d.windows = app.NewWindow(decodeTitle)
+	d.windows = app.NewWindow("解码")
 	d.windows.SetContent(container.NewGridWithColumns(2,
 		d.Decode(),
 		container.NewGridWithRows(2,

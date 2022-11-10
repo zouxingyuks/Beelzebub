@@ -1,4 +1,4 @@
-package main
+package algorithm
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	ruler map[string]string
+	Ruler map[string]string
 )
 
 func (s *Stack) Solve() (text string) { //字符串处理
@@ -35,7 +35,7 @@ func (s *Stack) Solve() (text string) { //字符串处理
 		s.Push(string(text[0]))
 	}
 	if unicode.IsUpper(rune(s.Top()[0])) { //是大写字母，对应字符串入栈
-		text = ruler[s.Top()]
+		text = Ruler[s.Top()]
 		if text == "" {
 			text = "输入的 " + s.Top() + " 未指定对应字符串"
 			return text
